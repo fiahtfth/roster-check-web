@@ -55,4 +55,4 @@ $('audit').addEventListener('click', async () => {
 $('sample').addEventListener('click', () => run(SAMPLE));
 $('template').addEventListener('click', () => download('roster-check-template.csv', 'Date,Start,End,Room,Teacher\r\n'));
 $('download').addEventListener('click', () => result && download('roster-check-findings.csv', issuesCsv(result)));
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('./service-worker.js').catch(() => {});
