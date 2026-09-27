@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17334d">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>Roster Check — exam duty audit</title>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">FREE · PRIVATE · NO SIGN-IN</p>
+      <h1>Catch exam-duty clashes before the roster goes out.</h1>
+      <p class="intro">Upload a simple CSV and check overlapping teacher assignments, duplicate rows, invalid times, and planned duty hours. Your file stays in your browser.</p>
+    </header>
+    <section class="card">
+      <h2>Audit a roster</h2>
+      <label for="file">Roster CSV</label>
+      <input id="file" type="file" accept=".csv,text/csv">
+      <p class="hint">Columns: <code>Date,Start,End,Room,Teacher</code>. Use YYYY-MM-DD and 24-hour HH:MM times. Use a unique staff code in Teacher if possible. Same-day duties only; limit 5 MB and 5,000 rows.</p>
+      <div class="actions"><button id="audit" type="button">Check roster</button><button id="sample" class="secondary" type="button">Try fictional sample</button><button id="template" class="ghost" type="button">Download template</button></div>
+      <p id="error" class="error" role="alert"></p>
+    </section>
+    <section id="results" class="card hidden" aria-live="polite">
+      <h2>Audit results</h2>
+      <div id="summary" class="stats"></div>
+      <p class="hint">Planned hours are provisional if conflicts remain. Different contracts, leave, and teaching loads can explain unequal hours; review them before changing duties.</p>
+      <div class="section-head"><h3>Findings</h3><button id="download" class="secondary" type="button">Download findings CSV</button></div>
+      <div id="issues"></div>
+      <h3>Planned hours by teacher</h3>
+      <div id="workload"></div>
+    </section>
+    <footer>This checker audits the rows you provide. It does not know staff availability, school rules, or whether the roster covers every required room. Co-invigilators in one room are allowed. <a href="privacy.html">Privacy</a></footer>
+  </main>
+  <script type="module" src="main.mjs"></script>
+</body>
+</html>
